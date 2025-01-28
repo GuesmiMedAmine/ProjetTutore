@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace Secrétaire - Librairie</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Espace Secrétaire</h1>
+    <p>Gérez les livres de la bibliothèque facilement.</p>
+  </header>
+
+  <div class="container">
+    <div class="form-section">
+      <h2>Ajouter un Livre</h2>
+      <form id="addBookForm">
+        <input type="text" id="title" placeholder="Titre du livre" required>
+        <input type="text" id="author" placeholder="Auteur" required>
+        <input type="text" id="category" placeholder="Catégorie" required>
+        <input type="text" id="year" placeholder="Année de publication" required>
+        <input type="text" id="isbn" placeholder="ISBN" required>
+        <textarea id="description" placeholder="Description" required></textarea>
+        <input type="number" id="copies" placeholder="Nombre d'exemplaires disponibles" required>
+        <button type="submit">Ajouter</button>
+      </form>
+    </div>
+
+    <div class="book-list">
+      <div class="book-card">
+        <img src="cover.jpg" alt="Le Petit Prince" class="book-cover">
+        <h3>Le Petit Prince</h3>
+        <p>Auteur : Antoine de Saint-Exupéry</p>
+        <p>Catégorie : Fiction</p>
+        <p>Année de publication : 1943</p>
+        <p>ISBN : 1234567890</p>
+        <p>Description : Un conte poétique et philosophique.</p>
+        <p>Nombre d'exemplaires disponibles : 10</p>
+        <button onclick="deleteBook(this)">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Librairie. Tous droits réservés.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
