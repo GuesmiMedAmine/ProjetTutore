@@ -1,133 +1,241 @@
+/* 🌟 Global */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
-  }
-  
-  header {
-    background-color: #07489cc0;
-    color: white;
-    padding: 1rem 2rem;
-    text-align: center;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 1rem;
-  }
-  
-  .card, .form-section, .book-card {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-  }
-  
-  h1, h2 {
-    color: #b0b0b0;
-  }
-  
-  input[type="text"], input[type="email"], input[type="password"], input[type="number"], select, textarea, button {
-    padding: 0.8rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    width: 100%;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  button {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    width: auto;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .search-bar {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .book-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  
-  .book-card {
-    text-align: center;
-  }
-  
-  .book-cover {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  footer {
-    margin-top: 2rem;
-    text-align: center;
-    color: #777;
-    padding: 1rem 0;
-    font-size: 0.9rem;
-  }
-  
-  .borrowed-books {
-    margin-top: 2rem;
-  }
-  
-  .borrowed-books ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .borrowed-books li {
-    background-color: #eee;
-    padding: 0.8rem;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-
-
-  /* Animation de fade-in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
 }
 
-/* Animation de slide-in */
-@keyframes slideIn {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+/* 🌟 Header */
+header {
+  background-color: #07489cc0;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  animation: fadeInHeader 1s ease-in-out;
 }
 
-/* Appliquer les animations aux éléments */
+/* 🌟 Containers */
 .container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
   animation: fadeIn 1s ease-in-out;
+}
+
+/* 🌟 Titres */
+h1, h2 {
+  color: #4CAF50;
+}
+
+/* 🌟 Formulaires & Inputs */
+input, select, textarea, button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* 🌟 Boutons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  width: auto;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* 🌟 Barre de recherche */
+.search-bar {
+  display: flex;
+  gap: 1rem;
+}
+
+/* 🌟 Liste des livres */
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* 🌟 Affichage des livres */
+.book-card {
+  text-align: center;
+}
+
+/* 🌟 Couverture des livres */
+.book-cover {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* 🌟 Pied de page */
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: #777;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+/* 🌟 Liste des livres empruntés */
+.borrowed-books {
+  margin-top: 2rem;
+}
+
+.borrowed-books ul {
+  list-style: none;
+  padding: 0;
+}
+
+.borrowed-books li {
+  background-color: #eee;
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 🌟 Gestion des livres indisponibles */
+.book-card.indisponible {
+  opacity: 0.5;
+  background-color: #f8f8f8;
+  position: relative;
+}
+
+.book-card.indisponible::after {
+  content: "Indisponible";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+/* 🌟 Détails du livre */
+.book-detail-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: auto;
+}
+
+.book-cover-large {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.book-info {
+  max-width: 500px;
+}
+
+.book-info h2 {
+  color: #333;
+}
+
+.book-info p {
+  color: #666;
+}
+
+/* 🌟 Barre de navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2d89ef;
+  padding: 15px 20px;
+  color: white;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* 🌟 Conteneur des livres intéressants */
+.interet-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+}
+
+/* 🌟 Carte des livres intéressants */
+.interet-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+}
+
+.interet-card img {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* 🌟 Boutons des livres intéressants */
+.interet-card button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.interet-card button:hover {
+  background: darkred;
+}
+
+/* 🌟 Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 .card {
@@ -146,17 +254,6 @@ body {
 
 /* Animation de fade-in pour le header */
 @keyframes fadeInHeader {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Appliquer l'animation au header */
-header {
-  animation: fadeInHeader 1s ease-in-out;
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

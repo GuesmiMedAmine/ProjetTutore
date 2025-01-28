@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestion de Librairie</title>
+  <title>Détails du Livre</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,23 +20,7 @@
   </header>
 
   <div class="container">
-    <!-- Section Secrétaire -->
-    <div class="card">
-      <h2>Espace Secrétaire</h2>
-      <p>Gérez les livres de la librairie et surveillez les emprunts.</p>
-      <a href="admin-dashboard.html">Accéder à l'espace Secrétaire</a>
-      <br>
-      <a href="#client-section">Aller à l'espace Client</a>
-    </div>
-
-    <!-- Section Client -->
-    <div class="card" id="client-section">
-      <h2>Espace Client</h2>
-      <p>Consultez les livres disponibles et gérez vos emprunts.</p>
-      <a href="client-dashboard.html">Accéder à l'espace Client</a>
-      <br>
-      <a href="#secretaire-section">Aller à l'espace Secrétaire</a>
-    </div>
+    <div id="book-details"></div>
   </div>
 
   <footer>
@@ -44,5 +28,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="book_details.js"></script>
 </body>
 </html>

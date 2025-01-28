@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Panier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1>Librairie</h1>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="client-dashboard.html">Catalogue</a>
+                <a href="interets.html">⭐ Intérêts (<span id="interets-count">0</span>)</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>📚 Mon Panier</h2>
+        <ul id="panier-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let panier = JSON.parse(localStorage.getItem("panier")) || [];
+            let panierList = document.getElementById("panier-list");
+
+            if (panier.length === 0) {
+                panierList.innerHTML = "<p>Votre panier est vide.</p>";
+            } else {
+                panier.forEach(book => {
+                    let li = document.createElement("li");
+                    li.textContent = book.title;
+                    let removeBtn = document.createElement("button");
+                    removeBtn.textContent = "❌ Retirer";
+                    removeBtn.onclick = function() {
+                        removeFromPanier(book.id);
+                    };
+                    li.appendChild(removeBtn);
+                    panierList.appendChild(li);
+                });
+            }
+        });
+
+        function removeFromPanier(openLibraryId) {
+            let panier = JSON.parse(localStorage.getItem("panier")) || [];
+            panier = panier.filter(book => book.id !== openLibraryId);
+            localStorage.setItem("panier", JSON.stringify(panier));
+            location.reload();
+        }
+    </script>
+</body>
+</html>

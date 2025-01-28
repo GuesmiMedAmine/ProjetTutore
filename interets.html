@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>⭐ Livres qui m'intéressent</h2>
+    <div id="interets-list" class="interet-container"></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let interets = JSON.parse(localStorage.getItem("interets")) || [];
+        let interetsList = document.getElementById("interets-list");
+
+        if (interets.length === 0) {
+            interetsList.innerHTML = "<p>Aucun livre marqué comme intéressant.</p>";
+        } else {
+            interets.forEach(book => {
+                let div = document.createElement("div");
+                div.classList.add("interet-card");
+
+                let img = document.createElement("img");
+                img.src = book.cover || "placeholder.jpg"; 
+                img.alt = book.title;
+
+                let info = document.createElement("div");
+                info.innerHTML = `<p><strong>${book.title}</strong></p>`;
+
+                let removeBtn = document.createElement("button");
+                removeBtn.textContent = "❌ Retirer";
+                removeBtn.onclick = function() {
+                    removeFromInterets(book.id);
+                };
+
+                div.appendChild(img);
+                div.appendChild(info);
+                div.appendChild(removeBtn);
+
+                interetsList.appendChild(div);
+            });
+        }
+    });
+</script>

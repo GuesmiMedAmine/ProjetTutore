@@ -8,14 +8,20 @@
 </head>
 <body>
   <header>
-    <h1>Espace Client</h1>
-    <p>Recherchez et empruntez des livres facilement.</p>
-    <nav>
-      <a href="accueil.html" class="nav-button">Accueil</a>
+    <nav class="navbar">
+      <h1>Librairie - Espace Client</h1>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="client-dashboard.html">Catalogue</a>
+        <a href="panier.html">🛒 Panier (<span id="panier-count">0</span>)</a>
+        <a href="interets.html">⭐ Intérêts (<span id="interets-count">0</span>)</a>
+      </div>
     </nav>
+    <p class="header-subtext">Recherchez et empruntez des livres facilement.</p>
   </header>
 
   <div class="container">
+    <!-- Barre de recherche -->
     <div class="search-bar">
       <input type="text" placeholder="Rechercher un livre..." id="searchInput">
       <select id="categoryFilter">
@@ -27,7 +33,13 @@
       <button type="button" onclick="searchBooks()">Rechercher</button>
     </div>
 
+    <!-- Zone d'affichage des livres -->
     <div class="book-list"></div>
+
+    <!-- Message si aucun livre n'est trouvé -->
+    <p id="noResultsMessage" style="display:none; text-align:center; color:red; font-weight:bold;">
+      Aucun livre ne correspond à votre recherche.
+    </p>
   </div>
 
   <footer>

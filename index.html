@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestion de Librairie</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Librairie</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Bienvenue à la Librairie</h1>
-    <p>Gestion des livres et des emprunts simplifiée</p>
-  </header>
 
-  <div class="container">
-    <div class="card">
-      <h2>Connexion</h2>
-      <form id="loginForm" action="login.html" method="GET">
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Mot de passe" required>
-        <button type="submit">Se connecter</button>
-      </form>
-      <p>Pas encore inscrit ? <a href="register.html">Créer un compte</a></p>
+    <header>
+        <nav class="navbar">
+            <h1>Librairie</h1>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="client-dashboard.html">Catalogue</a>
+                <a href="panier.html">🛒 Panier (<span id="panier-count">0</span>)</a>
+                <a href="interets.html">⭐ Intérêts (<span id="interets-count">0</span>)</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Bienvenue à la Librairie</h2>
+        <p>Explorez notre collection de livres et empruntez vos favoris.</p>
     </div>
-  </div>
 
-  <footer>
-    &copy; 2025 Librairie. Tous droits réservés.
-  </footer>
-  
+    <footer>
+        &copy; 2025 Librairie. Tous droits réservés.
+    </footer>
+
+    <script src="script.js"></script>
+
 </body>
 </html>

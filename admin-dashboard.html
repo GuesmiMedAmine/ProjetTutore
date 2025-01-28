@@ -8,11 +8,16 @@
 </head>
 <body>
   <header>
-    <h1>Espace Secrétaire</h1>
-    <p>Gérez les livres de la bibliothèque facilement.</p>
-    <nav>
-      <a href="accueil.html" class="nav-button">Accueil</a>
+    <nav class="navbar">
+      <h1>Librairie - Espace Secrétaire</h1>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="client-dashboard.html">Catalogue</a>
+        <a href="panier.html">🛒 Panier (<span id="panier-count">0</span>)</a>
+        <a href="interets.html">⭐ Intérêts (<span id="interets-count">0</span>)</a>
+      </div>
     </nav>
+    <p class="header-subtext">Gérez les livres de la bibliothèque facilement.</p>
   </header>
 
   <div class="container">
@@ -29,20 +34,6 @@
         <button type="submit">Ajouter</button>
       </form>
     </div>
-
-    <div class="book-list">
-      <div class="book-card">
-        <img src="cover.jpg" alt="Le Petit Prince" class="book-cover">
-        <h3>Le Petit Prince</h3>
-        <p>Auteur : Antoine de Saint-Exupéry</p>
-        <p>Catégorie : Fiction</p>
-        <p>Année de publication : 1943</p>
-        <p>ISBN : 1234567890</p>
-        <p>Description : Un conte poétique et philosophique.</p>
-        <p>Nombre d'exemplaires disponibles : 10</p>
-        <button onclick="deleteBook(this)">Supprimer</button>
-      </div>
-    </div>
   </div>
 
   <footer>
@@ -52,4 +43,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
