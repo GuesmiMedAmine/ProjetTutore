@@ -1,259 +1,272 @@
-/* 🌟 Global */
-body {
-  font-family: Arial, sans-serif;
+/* Variables CSS */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #e67e22;
+  --accent-color: #3498db;
+  --light-bg: #f9f9f9;
+}
+
+/* Reset et styles de base */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
-  color: #333;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* 🌟 Header */
-header {
-  background-color: #07489cc0;
-  color: white;
-  padding: 1rem 2rem;
-  text-align: center;
-  animation: fadeInHeader 1s ease-in-out;
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
 }
 
-/* 🌟 Containers */
-.container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 1rem;
-  animation: fadeIn 1s ease-in-out;
-}
-
-/* 🌟 Titres */
-h1, h2 {
-  color: #4CAF50;
-}
-
-/* 🌟 Formulaires & Inputs */
-input, select, textarea, button {
-  padding: 0.8rem;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 1rem;
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 5%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
   width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-textarea {
-  resize: vertical;
+.navbar h1 {
+  font-family: 'Merriweather', serif;
+  color: var(--primary-color);
+  font-size: 2rem;
 }
 
-/* 🌟 Boutons */
-button {
-  background-color: #4CAF50;
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+}
+
+/* Conteneurs et cartes */
+.container {
+  padding: 120px 5% 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(230, 126, 34, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+  z-index: -1;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h2 {
+  font-family: 'Merriweather', serif;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.card p {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Boutons et liens */
+.btn, .card a {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--secondary-color);
   color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.card a:hover::after {
+  left: 100%;
+}
+
+.btn:hover {
+  background: #d35400;
+}
+
+/* Formulaires */
+.form-section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.form-section input,
+.form-section textarea,
+.form-section select {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.form-section button {
+  background: var(--secondary-color);
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 25px;
   cursor: pointer;
-  width: auto;
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+.form-section button:hover {
+  background: var(--accent-color);
 }
 
-/* 🌟 Barre de recherche */
+/* Login Container */
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Recherche et livres */
 .search-bar {
   display: flex;
+  justify-content: center;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-/* 🌟 Liste des livres */
 .book-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
 
-/* 🌟 Affichage des livres */
-.book-card {
-  text-align: center;
-}
-
-/* 🌟 Couverture des livres */
-.book-cover {
-  max-width: 100%;
-  height: auto;
+.book-item {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
   border-radius: 10px;
-}
-
-/* 🌟 Pied de page */
-footer {
-  margin-top: 2rem;
-  text-align: center;
-  color: #777;
-  padding: 1rem 0;
-  font-size: 0.9rem;
-}
-
-/* 🌟 Liste des livres empruntés */
-.borrowed-books {
-  margin-top: 2rem;
-}
-
-.borrowed-books ul {
-  list-style: none;
-  padding: 0;
-}
-
-.borrowed-books li {
-  background-color: #eee;
-  padding: 0.8rem;
-  border-radius: 5px;
-  margin-bottom: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* 🌟 Gestion des livres indisponibles */
-.book-card.indisponible {
-  opacity: 0.5;
-  background-color: #f8f8f8;
-  position: relative;
-}
-
-.book-card.indisponible::after {
-  content: "Indisponible";
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: red;
-  color: white;
-  padding: 5px 10px;
-  font-size: 0.9rem;
-  border-radius: 5px;
-}
-
-/* 🌟 Détails du livre */
-.book-detail-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: auto;
-}
-
-.book-cover-large {
-  width: 200px;
-  border-radius: 10px;
-}
-
-.book-info {
-  max-width: 500px;
-}
-
-.book-info h2 {
-  color: #333;
-}
-
-.book-info p {
-  color: #666;
-}
-
-/* 🌟 Barre de navigation */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #2d89ef;
-  padding: 15px 20px;
-  color: white;
-}
-
-.navbar h1 {
-  margin: 0;
-}
-
-.nav-links {
-  display: flex;
-  gap: 15px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-}
-
-.nav-links a:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-/* 🌟 Conteneur des livres intéressants */
-.interet-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 20px;
-}
-
-/* 🌟 Carte des livres intéressants */
-.interet-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 300px;
-}
-
-.interet-card img {
-  width: 60px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-/* 🌟 Boutons des livres intéressants */
-.interet-card button {
-  background: red;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.interet-card button:hover {
-  background: darkred;
-}
-
-/* 🌟 Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-.card {
-  animation: slideIn 1s ease-in-out;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.book-item:hover {
+  transform: translateY(-10px);
 }
 
-/* Animation de fade-in pour le header */
-@keyframes fadeInHeader {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Footer */
+footer {
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .container {
+    padding-top: 100px;
+  }
 }

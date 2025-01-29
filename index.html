@@ -6,185 +6,20 @@
   <title>Librairie Numérique</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-color: #2c3e50;
-      --secondary-color: #e67e22;
-      --accent-color: #3498db;
-      --light-bg: #f9f9f9;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      min-height: 100vh;
-    }
-
-    .navbar {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 1rem 5%;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .navbar h1 {
-      font-family: 'Merriweather', serif;
-      color: var(--primary-color);
-      font-size: 2rem;
-      animation: slideInLeft 1s ease;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-links a:hover {
-      color: var(--secondary-color);
-    }
-
-    .container {
-      padding: 120px 5% 50px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      padding: 2rem;
-      text-align: center;
-      transition: transform 0.3s ease;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      position: relative;
-      overflow: hidden;
-      min-height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card h2 {
-      font-family: 'Merriweather', serif;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-    }
-
-    .card p {
-      color: #666;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      background: var(--secondary-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      margin: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn:hover {
-      background: #d35400;
-    }
-
-    footer {
-      background: var(--primary-color);
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-    }
-  </style>
-  <script>
-    function checkAdminAccess(event) {
-      event.preventDefault();
-      const isAdmin = localStorage.getItem("isAdmin");
-      if (!isAdmin || isAdmin !== "true") {
-        alert("Accès refusé. Vous devez être administrateur.");
-        window.location.href = "admin-login.html";
-      } else {
-        window.location.href = "admin-dashboard.html";
-      }
-    }
-  // Add this function to handle logout
-  function logout() {
-    localStorage.removeItem("isAdmin");
-    window.location.href = "accueil.html";
-  }
-
-  // Update DOMContentLoaded event
-  document.addEventListener('DOMContentLoaded', function() {
-    const isAdmin = localStorage.getItem("isAdmin") === "true";
-    const logoutLink = document.getElementById("logout-link");
-    
-    if (isAdmin && logoutLink) {
-      logoutLink.style.display = "block";
-      logoutLink.onclick = function(e) {
-        e.preventDefault();
-        logout();
-      };
-    }
-  });
-
-  // Existing checkAdminAccess function remains the same
-  function checkAdminAccess(event) {
-    event.preventDefault();
-    const isAdmin = localStorage.getItem("isAdmin");
-    if (!isAdmin || isAdmin !== "true") {
-      alert("Accès refusé. Vous devez être administrateur.");
-      window.location.href = "admin-login.html";
-    } else {
-      window.location.href = "admin-dashboard.html";
-    }
-  }
-  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <!-- In the navbar section -->
-  <nav class="navbar">
-    <h1><i class="fas fa-book-open"></i> Librairie Numérique</h1>
+    <nav class="navbar">
+      <h1><i class="fas fa-book-open"></i> Librairie Numérique</h1>
       <div class="nav-links">
         <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
         <a href="client-dashboard.html"><i class="fas fa-book"></i> Catalogue</a>
         <a href="panier.html"><i class="fas fa-shopping-cart"></i> Panier (<span id="panier-count">0</span>)</a>
         <a href="interets.html"><i class="fas fa-star"></i> Intérêts (<span id="interets-count">0</span>)</a>
-      <!-- Add this new logout link (hidden by default) -->
-      <a href="#" id="logout-link" style="display: none;"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
-  </div>
-</nav>
+        <a href="#" id="logout-link" style="display: none;"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+      </div>
+    </nav>
   </header>
 
   <div class="container">
@@ -204,5 +39,39 @@
   <footer>
     &copy; 2025 Librairie Numérique. Tous droits réservés.
   </footer>
+
+  <script>
+    // Gestion de l'accès admin
+    function checkAdminAccess(event) {
+      event.preventDefault();
+      const isAdmin = localStorage.getItem("isAdmin");
+      if (!isAdmin || isAdmin !== "true") {
+        alert("Accès refusé. Vous devez être administrateur.");
+        window.location.href = "admin-login.html";
+      } else {
+        window.location.href = "admin-dashboard.html";
+      }
+    }
+
+    // Gestion de la déconnexion
+    function logout() {
+      localStorage.removeItem("isAdmin");
+      window.location.href = "accueil.html";
+    }
+
+    // Au chargement de la page
+    document.addEventListener('DOMContentLoaded', function() {
+      const isAdmin = localStorage.getItem("isAdmin") === "true";
+      const logoutLink = document.getElementById("logout-link");
+      
+      if (isAdmin && logoutLink) {
+        logoutLink.style.display = "block";
+        logoutLink.onclick = function(e) {
+          e.preventDefault();
+          logout();
+        };
+      }
+    });
+  </script>
 </body>
 </html>
