@@ -1,0 +1,15 @@
+{
+  "name": "projettutore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "book_details.js",
+  "scripts": {
+    "dev": "node book_details.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuesmiMedAmine/ProjetTutore.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
