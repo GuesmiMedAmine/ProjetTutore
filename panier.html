@@ -133,7 +133,6 @@
                 opacity: 1;
             }
         }
-
     </style>
 </head>
 <body>
@@ -154,35 +153,43 @@
         <ul id="panier-list"></ul>
     </div>
 
-
-    <script src="script.js"></script>
+    <script src="user-manager.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let panier = JSON.parse(localStorage.getItem("panier")) || [];
-            let panierList = document.getElementById("panier-list");
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = UserManager.getCurrentUser();
+            
+            if (!user) {
+                window.location.href = 'client-login.html'; // Redirect if no user is logged in
+                return;
+            }
 
-            if (panier.length === 0) {
-                panierList.innerHTML = "<p>Votre panier est vide.</p>";
+            // Display cart items
+            const panierContainer = document.getElementById('panier-list');
+            if (user.panier.length === 0) {
+                panierContainer.innerHTML = "<p>Votre panier est vide.</p>";
             } else {
-                panier.forEach(book => {
-                    let li = document.createElement("li");
-                    li.textContent = book.title;
-                    let removeBtn = document.createElement("button");
-                    removeBtn.textContent = "❌ Retirer";
+                user.panier.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.nom} - ${item.prix}€`;
+
+                    // Remove item button
+                    const removeBtn = document.createElement('button');
+                    removeBtn.textContent = '❌ Retirer';
                     removeBtn.onclick = function() {
-                        removeFromPanier(book.id);
+                        removeFromCart(index);
                     };
                     li.appendChild(removeBtn);
-                    panierList.appendChild(li);
+                    panierContainer.appendChild(li);
                 });
             }
         });
 
-        function removeFromPanier(openLibraryId) {
-            let panier = JSON.parse(localStorage.getItem("panier")) || [];
-            panier = panier.filter(book => book.id !== openLibraryId);
-            localStorage.setItem("panier", JSON.stringify(panier));
-            location.reload();
+        // Remove item from cart
+        function removeFromCart(index) {
+            const user = UserManager.getCurrentUser();
+            const newPanier = user.panier.filter((_, i) => i !== index);
+            UserManager.updateUserData({ panier: newPanier });
+            location.reload(); // Reload to reflect changes
         }
     </script>
 </body>

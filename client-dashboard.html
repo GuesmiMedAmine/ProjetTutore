@@ -209,6 +209,7 @@
         <h3>Le Nom du Vent</h3>
         <p>Auteur: Patrick Rothfuss</p>
         <p>Catégorie: Fiction</p>
+        <button id="add-to-cart-btn">Ajouter au panier</button>
       </div>
       <!-- Plus de livres peuvent être ajoutés ici -->
     </div>
@@ -223,6 +224,31 @@
     &copy; 2025 Librairie Numérique. Tous droits réservés.
   </footer>
 
-  <script src="script.js"></script>
+  <!-- User Manager Script -->
+  <script src="user-manager.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = UserManager.getCurrentUser();
+      
+      if (!user) {
+        window.location.href = 'client-login.html';
+        return;
+      }
+
+      // Mettre à jour les compteurs dans la navbar
+      document.getElementById('panier-count').textContent = user.panier.length;
+      document.getElementById('interets-count').textContent = user.interets.length;
+
+      // Exemple d'ajout au panier
+      document.getElementById('add-to-cart-btn').onclick = () => {
+        UserManager.addToCart({
+          id: 123,
+          nom: 'Livre XYZ',
+          prix: 19.99
+        });
+        location.reload();
+      };
+    });
+  </script>
 </body>
 </html>
